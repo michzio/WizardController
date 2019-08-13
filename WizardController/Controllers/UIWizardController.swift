@@ -288,7 +288,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         previousViewController.wizardController = self
         
         // replace view controller in container view
-        ViewEmbedder.transition(from: self.currentViewController, to: previousViewController as! UIViewController, in: self, containerView: self.containerView, with: .SlideLeftToRight)
+        ViewEmbedder.transition(from: self.currentViewController, to: previousViewController as UIViewController, in: self, containerView: self.containerView, with: .SlideLeftToRight)
         { success in
             if let page = self.currentViewController as? UIWizardPageNavigable {
                 page.didStepBackward()
@@ -316,7 +316,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         nextViewController.wizardController = self
         
         // replace view controller in container view
-        ViewEmbedder.transition(from: self.currentViewController, to: nextViewController as! UIViewController, in: self, containerView: self.containerView, with: .SlideRightToLeft)
+        ViewEmbedder.transition(from: self.currentViewController, to: nextViewController as UIViewController, in: self, containerView: self.containerView, with: .SlideRightToLeft)
         { success in
             if let page = self.currentViewController as? UIWizardPageNavigable {
                 page.didStepForward()
@@ -402,7 +402,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         var firstViewController = dataSource.wizardController(self, viewControllerForPage: page)
         firstViewController.wizardController = self
         
-        ViewEmbedder.transition(from: self.currentViewController, to: firstViewController as! UIViewController, in: self, containerView: self.containerView, with: animation, completion: { success in
+        ViewEmbedder.transition(from: self.currentViewController, to: firstViewController as UIViewController, in: self, containerView: self.containerView, with: animation, completion: { success in
             self.currentViewController = firstViewController as? UIViewController
             self.currentPage = page
             self.navigationBar.topItem?.title = self.currentViewController?.title
@@ -593,7 +593,7 @@ extension UIWizardController {
         nextViewController.wizardController = self
         
         // replace view controller in container view
-        ViewEmbedder.embed(parent: self, container: containerView, child: nextViewController as! UIViewController, previous: self.currentViewController)
+        ViewEmbedder.embed(parent: self, container: containerView, child: nextViewController as UIViewController, previous: self.currentViewController)
       
         
         if let pageController = self.currentViewController as? UIWizardPageNavigable {
@@ -623,7 +623,7 @@ extension UIWizardController {
         nextViewController.wizardController = self
         
         // replace view controller in container view animated
-        ViewEmbedder.transition(from: self.currentViewController, to: nextViewController as! UIViewController, in: self, containerView: self.containerView, with: animation)
+        ViewEmbedder.transition(from: self.currentViewController, to: nextViewController as UIViewController, in: self, containerView: self.containerView, with: animation)
         { success in
             if let pageController = self.currentViewController as? UIWizardPageNavigable {
                 if direction > 0 { pageController.didStepForward() }

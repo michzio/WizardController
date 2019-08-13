@@ -35,7 +35,7 @@ Footer views where can be places progress bars that are compatible with
 WizardControllerDelegate protocol.
                    DESC
 
-  s.homepage     = "http://click5interactive.com"
+  s.homepage     = "https://github.com/michzio/WizardController"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -60,7 +60,7 @@ WizardControllerDelegate protocol.
   #  profile URL.
   #
 
-  s.author             = { "michzio" => "michal@click5interactive.com" }
+  s.author             = { "michzio" => "michzio@hotmail.com" }
   # Or just: s.author    = "michzio"
   # s.authors            = { "michzio" => "michzio@hotmail.com" }
   # s.social_media_url   = "http://twitter.com/michzio"
@@ -71,12 +71,12 @@ WizardControllerDelegate protocol.
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
+  s.platform     = :ios
   # s.platform     = :ios, "5.0"
   s.platform = :ios, "10.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "10.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -88,8 +88,8 @@ WizardControllerDelegate protocol.
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # s.source       = { :git => "http://EXAMPLE/WizardController.git", :tag => "#{s.version}" }
-  s.source = { :path => "." }
+  s.source       = { :git => "https://github.com/michzio/WizardController.git", :tag => "#{s.version}" }
+  # s.source = { :path => "." }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -115,7 +115,7 @@ WizardControllerDelegate protocol.
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
-s.resources = "WizardController/**/*.{lproj,storyboard,xcdatamodeld,xib,xcassets,json}"
+  s.resources = "WizardController/**/*.{png,jpeg,jpg,lproj,storyboard,xcdatamodeld,xib,xcassets,json}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -126,7 +126,7 @@ s.resources = "WizardController/**/*.{lproj,storyboard,xcdatamodeld,xib,xcassets
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+  s.framework  = "UIKit"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
@@ -139,9 +139,10 @@ s.resources = "WizardController/**/*.{lproj,storyboard,xcdatamodeld,xib,xcassets
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
+  s.swift_version = "5.0"
 end

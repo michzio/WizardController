@@ -24,8 +24,8 @@ class ViewEmbedder {
         let w = containerView.frame.size.width
         let h = containerView.frame.size.height
         
-        nextVC.willMove(toParentViewController: parentVC)
-        parentVC.addChildViewController(nextVC)
+        nextVC.willMove(toParent: parentVC)
+        parentVC.addChild(nextVC)
         containerView.addSubview(nextVC.view)
         
         switch animation {
@@ -61,11 +61,11 @@ class ViewEmbedder {
             }
             
         }, completion: { (success) in
-            nextVC.didMove(toParentViewController: parentVC)
+            nextVC.didMove(toParent: parentVC)
             if let previousVC = previousVC {
-                previousVC.willMove(toParentViewController: nil)
+                previousVC.willMove(toParent: nil)
                 previousVC.view.removeFromSuperview()
-                previousVC.removeFromParentViewController()
+                previousVC.removeFromParent()
             }
             completion?(success)
         })
@@ -81,19 +81,19 @@ class ViewEmbedder {
         if let previous = previous {
             removeFromParent(vc: previous)
         }
-        child.willMove(toParentViewController: parent)
-        parent.addChildViewController(child)
+        child.willMove(toParent: parent)
+        parent.addChild(child)
         container.addSubview(child.view)
-        child.didMove(toParentViewController: parent)
+        child.didMove(toParent: parent)
         let w = container.frame.size.width;
         let h = container.frame.size.height;
         child.view.frame = CGRect(x: 0, y: 0, width: w, height: h)
     }
     
     class func removeFromParent(vc:UIViewController){
-        vc.willMove(toParentViewController: nil)
+        vc.willMove(toParent: nil)
         vc.view.removeFromSuperview()
-        vc.removeFromParentViewController()
+        vc.removeFromParent()
     }
     
     class func embed(withIdentifier id:String, parent:UIViewController, container:UIView, completion:((UIViewController)->Void)? = nil) {
