@@ -42,7 +42,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
     }()
 
     // MARK: - CONTAINER VIEWS
-    private let headerContainerView : UIView = {
+    public let headerContainerView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.green
         return view
@@ -54,7 +54,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         return view
     }()
     
-    private let footerContainerView : UIView = {
+    public let footerContainerView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.blue
         return view
@@ -119,7 +119,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         let constraint = headerContainerView.topAnchor.constraint(equalTo: delegate.hasNavigationBar ? navigationBar.bottomAnchor : self.view.topAnchor, constant: 0)
         return constraint
     }()
-    private lazy var headerContainerViewHeightConstraint : NSLayoutConstraint = {
+    public lazy var headerContainerViewHeightConstraint : NSLayoutConstraint = {
         let constraint = headerContainerView.heightAnchor.constraint(equalToConstant: CGFloat(delegate.headerHeight))
         return constraint
     }()
@@ -136,7 +136,7 @@ open class UIWizardController: UIViewController, UIWizardControllerDelegate, UIW
         let constraint = footerContainerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
         return constraint
     }()
-    private lazy var footerContainerViewHeightConstraint : NSLayoutConstraint = {
+    public lazy var footerContainerViewHeightConstraint : NSLayoutConstraint = {
         let constraint = footerContainerView.heightAnchor.constraint(equalToConstant: CGFloat(delegate.footerHeight))
         return constraint
     }()
